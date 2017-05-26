@@ -58,6 +58,20 @@ Plan of attack:
       deploy the first version to App Store
 
 
+# Working Journal 
+
+5-26-17 Friday. 
+  
+Todos:
     
+1. setting up coreData entities with index number 
+   Need to write a separate class (probalby will be use again in another project)
+    * find the max index number add one to it
+    * delete from index and reorder index numbers
+    
+2. Setting up timer class, and analog clock view.
 
 
+*3. figure out how to cross off cells base on completion, and able to start over for the following day.
+   
+    
