@@ -18,5 +18,9 @@ var calayer: CALayer {return viewForLayer.layer} //example
   
   calayer.frame = newFrame
   
+ 
+ # CAShapeLayer 
+      makes use of scalable vector paths to draw
+  
   
   
