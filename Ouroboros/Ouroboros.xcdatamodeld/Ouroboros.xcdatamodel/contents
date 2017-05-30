@@ -10,11 +10,12 @@
         <attribute name="isArchive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isMorning" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isNight" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="toDo" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="histories" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="routine" inverseEntity="History" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Routine" positionX="610" positionY="4200" width="128" height="133"/>
-        <element name="History" positionX="369" positionY="4239" width="128" height="88"/>
+        <element name="Routine" positionX="594" positionY="3755" width="128" height="148"/>
+        <element name="History" positionX="369" positionY="3800" width="128" height="88"/>
     </elements>
 </model>

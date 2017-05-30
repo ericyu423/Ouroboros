@@ -23,8 +23,8 @@
 		D4188ED41ED9326F00307B3A /* ClockView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4188ED31ED9326F00307B3A /* ClockView1.swift */; };
 		D4188ED61ED948A700307B3A /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4188ED51ED948A700307B3A /* ClockView.swift */; };
 		D45B37791EDB4A220023EBF9 /* DrawTextAroundCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B37781EDB4A220023EBF9 /* DrawTextAroundCircle.swift */; };
-		D4EE301A1EDDD4C7002ECBA5 /* Routine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EE30161EDDD4C7002ECBA5 /* Routine+CoreDataClass.swift */; };
-		D4EE301C1EDDD4C7002ECBA5 /* History+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EE30181EDDD4C7002ECBA5 /* History+CoreDataClass.swift */; };
+		D4EE301A1EDDD4C7002ECBA5 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EE30161EDDD4C7002ECBA5 /* Routine.swift */; };
+		D4EE301C1EDDD4C7002ECBA5 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EE30181EDDD4C7002ECBA5 /* History.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +67,8 @@
 		D4188ED31ED9326F00307B3A /* ClockView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView1.swift; sourceTree = "<group>"; };
 		D4188ED51ED948A700307B3A /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		D45B37781EDB4A220023EBF9 /* DrawTextAroundCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawTextAroundCircle.swift; sourceTree = "<group>"; };
-		D4EE30161EDDD4C7002ECBA5 /* Routine+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Routine+CoreDataClass.swift"; path = "../Routine+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D4EE30181EDDD4C7002ECBA5 /* History+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "History+CoreDataClass.swift"; path = "../History+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D4EE30161EDDD4C7002ECBA5 /* Routine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Routine.swift; path = ../Routine.swift; sourceTree = "<group>"; };
+		D4EE30181EDDD4C7002ECBA5 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = History.swift; path = ../History.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,8 +193,8 @@
 		D4EE30201EDE1042002ECBA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D4EE30161EDDD4C7002ECBA5 /* Routine+CoreDataClass.swift */,
-				D4EE30181EDDD4C7002ECBA5 /* History+CoreDataClass.swift */,
+				D4EE30161EDDD4C7002ECBA5 /* Routine.swift */,
+				D4EE30181EDDD4C7002ECBA5 /* History.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -336,7 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4EE301A1EDDD4C7002ECBA5 /* Routine+CoreDataClass.swift in Sources */,
+				D4EE301A1EDDD4C7002ECBA5 /* Routine.swift in Sources */,
 				D4188ECB1ED8FF6A00307B3A /* AnchorHelper.swift in Sources */,
 				D4188ED01ED904BE00307B3A /* Helper.swift in Sources */,
 				D4188E9D1ED89A0200307B3A /* Ouroboros.xcdatamodeld in Sources */,
@@ -346,7 +346,7 @@
 				D4188E971ED89A0200307B3A /* MainViewController.swift in Sources */,
 				D4188ED61ED948A700307B3A /* ClockView.swift in Sources */,
 				D4188EC61ED8A77300307B3A /* MainTabBarController.swift in Sources */,
-				D4EE301C1EDDD4C7002ECBA5 /* History+CoreDataClass.swift in Sources */,
+				D4EE301C1EDDD4C7002ECBA5 /* History.swift in Sources */,
 				D4188ED41ED9326F00307B3A /* ClockView1.swift in Sources */,
 				D4188E951ED89A0200307B3A /* AppDelegate.swift in Sources */,
 			);

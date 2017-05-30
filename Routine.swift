@@ -9,8 +9,9 @@
 import Foundation
 import CoreData
 
+
 /*
- 
+ @NSManaged public var name: String?
  @NSManaged public var index: Int32
  @NSManaged public var isArchive: Bool
  @NSManaged public var isMorning: Bool
@@ -20,6 +21,18 @@ import CoreData
  */
 
 class Routine: NSManagedObject {
+    
+    class func findOrCreateRoutine(routine: Routine,in context: NSManagedObject) -> Routine{
+    
+        let request: NSFetchRequest<Routine> = Routine.fetchRequest()
+        
+        request.predicate = NSPredicate(format:"name == %@ AND isMorning == TRUE", routine.name!)
+      
+        return Routine()
+    }
+    
+
+    
     
     
 }
