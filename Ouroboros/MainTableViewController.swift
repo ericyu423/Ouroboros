@@ -11,7 +11,7 @@ import UIKit
 protocol MainTableViewControllerDelegate {
     func tableTapped()
 }
-
+@IBDesignable
 class MainTableViewController: UITableViewController {
 
     var delegate:MainTableViewControllerDelegate?

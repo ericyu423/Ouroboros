@@ -16,12 +16,14 @@ func degree2radian(_ a:CGFloat)->CGFloat {
     return b
 }
 
-@IBDesignable
+//@IBDesignable
 class ClockView: UIView {
 
     var radius:CGFloat{
         return min(bounds.width/2 , bounds.height/2) - 5
     }
+
+    let radianOffset = CGFloat(Double.pi)
 
     let startAngle: CGFloat =  0
     let endAngle: CGFloat =  CGFloat(2*Double.pi)
@@ -45,12 +47,13 @@ class ClockView: UIView {
         drawMinuteHand()
         drawHourHand()
         drawMiddlePoint()
+        
+     
     }
     func startUpdates(){
         
-        updateTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateHands), userInfo: nil, repeats: true)
-        
-        
+        updateTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateHands), userInfo: nil, repeats: true)
+  
     }
     func stopUpdates(){
         
@@ -63,19 +66,18 @@ class ClockView: UIView {
         let now = Date()
         let cal = Calendar.current
    
-        let comps = cal.dateComponents([.year, .month, .day, .hour, .minute,.second], from: now)
+        let comps = cal.dateComponents([.year, .month, .day, .hour, .minute,.second,.nanosecond], from: now)
      
-       
-       // var percentageSeconds = CGFloat((comps.second)!) / 60.0
-       // let percentageMinutes = CGFloat((comps.minute)!) / 60.0
-       // let percentageHours = CGFloat(comps.hour!) / 24.0
+        let sec = (Double(comps.nanosecond!)/1000000000.0) + Double(comps.second!)
+        let min = Double(comps.second!)/60.0 + Double(comps.minute!)
+        let hr = Double(comps.minute!)/60.0 + Double(comps.hour! % 12)
         
-        let radianOffset = CGFloat(Double.pi)
-        //start at 12 o'clock direction
+        let radianSeconds = CGFloat(Double(sec * 6) * (Double.pi/180.0)) + radianOffset
         
-        let radianSeconds = CGFloat(Double(comps.second! * 6) * (Double.pi/180.0)) + radianOffset
-        let radianMinutes = CGFloat(Double(comps.minute! * 6) * (Double.pi/180.0)) + radianOffset
-        let RadianHours = CGFloat(Double(comps.hour! * 15) * (Double.pi/180.0)) + radianOffset
+        let radianMinutes = CGFloat(Double(min * 6) * (Double.pi/180.0)) + radianOffset
+        
+        let radianHours = CGFloat(Double(hr * 30
+            ) * (Double.pi/180.0)) + radianOffset
     
         secondHand?.transform = CATransform3DMakeRotation(radianSeconds, 0, 0, 1)
        
@@ -84,7 +86,7 @@ class ClockView: UIView {
        
         
         hourHand?.transform =
-            CATransform3DMakeRotation(RadianHours, 0, 0, 1)
+            CATransform3DMakeRotation(radianHours, 0, 0, 1)
     }
 
     
@@ -159,54 +161,63 @@ class ClockView: UIView {
     }
     
     func drawMiddlePoint(){
-        
-        let path = UIBezierPath()
-        
-        path.lineWidth = 3
-        path.addArc(withCenter:centerPoint,
-                    radius: 7,
-                    startAngle: startAngle,
-                    endAngle: endAngle,
-                    clockwise: false)
-        path.fill()
-//MARK: - can not get this to work properly 
-        /*
-        
         circle = CAShapeLayer()
         let path = UIBezierPath()
         path.addArc(withCenter:centerPoint,
-                    radius: 2,
+                    radius: 8,
                     startAngle: startAngle,
                     endAngle: endAngle,
                     clockwise: false)
-        hourHand?.path = path.cgPath
-        circle?.fillColor = UIColor.black.cgColor
+        circle?.path = path.cgPath
         circle?.shadowOpacity = 0.3
-        
-        //with out poistion addArc will be at wrong place
-        circle?.position = CGPoint(x: CGFloat(frame.midX), y: CGFloat(frame.midY))
         circle?.shadowOffset = CGSize(width: 0, height: 5)
         layer.addSublayer(circle!)
-        updateHands()*/
     }
     
+   
+    
     func drawTicks() {
-        
+
         let path = UIBezierPath()
+        let digitRadius: CGFloat = radius * 0.80
         let outerRadius: CGFloat = radius
-        let innerRadius: CGFloat = radius * 0.90
+        let innerRadius: CGFloat = radius * 0.95
         let numOfTicks = 12
         let dx = bounds.midX
         let dy = bounds.midY
+        let textFrame = CGRect(x: 0, y: 0, width: radius/4, height: radius/4)
         
         for i in 0..<numOfTicks {
-            var angle = CGFloat(i) * CGFloat(2*Double.pi) / CGFloat(numOfTicks)
-            angle = angle - CGFloat(0.5*Double.pi)
+          
+            let angle = CGFloat(i) * CGFloat(2*Double.pi) / CGFloat(numOfTicks)
+            
+            let textLayer = CATextLayer()
+            textLayer.alignmentMode = kCAAlignmentCenter
+            textLayer.foregroundColor = UIColor.black.cgColor
+            textLayer.contentsScale = UIScreen.main.scale
+            
+            textLayer.frame = textFrame
+        
+            
+            let digit = (i+3)%12 != 0 ? (i+3)%12 : 12
+            textLayer.string = "\(digit)"
+            
+            
+            textLayer.position = CGPoint(x: digitRadius * cos(angle) + dx, y: digitRadius * sin(angle) + dy)
+            
+            if radius/2 < 58 {
+                textLayer.fontSize = textLayer.fontSize / 2
+            }
+           
             let inner = CGPoint(x: innerRadius * cos(angle) + dx, y: innerRadius * sin(angle) + dy)
             let outer = CGPoint(x: outerRadius * cos(angle) + dx, y: outerRadius * sin(angle) + dy)
+            
+            path.lineWidth = 3
             path.move(to: inner)
             path.addLine(to: outer)
             path.stroke()
+           
+            layer.addSublayer(textLayer)
         }
     }
 }

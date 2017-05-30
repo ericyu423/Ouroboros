@@ -122,6 +122,7 @@ class MainViewController: UIViewController,MainTableViewControllerDelegate{
     func InitializedSubViewControllers(){
      
         view.addSubview(tableViewContainer)
+        
         tableViewContainer.layer.cornerRadius = 5
         tableViewContainer.layer.masksToBounds = true
         tableViewContainerLayoutWithConstraintVariable()
@@ -140,18 +141,15 @@ class MainViewController: UIViewController,MainTableViewControllerDelegate{
         view.addSubview(bottomViewContainer)
         bottomViewContainer.anchor(top: tableViewContainer.bottomAnchor, left: view.leftAnchor, bottom: bottomLayoutGuide.topAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
-      
-       // bottomViewContainer.backgroundColor = .blue //for test only
-        //clockView.anchorToViewEdeges(parentView: bottomViewContainer)//for test only, there will be 3 clocks
-        
-       
+   
         bottomViewContainer.addSubview(clockView)
+        clockView.anchorToViewEdeges(parentView: bottomViewContainer)//for test only, there will be 3 clocks
         
         clockView.backgroundColor = .white
-        clockView.anchor(top: bottomViewContainer.topAnchor, left: nil, bottom: nil, right: nil, paddingTop:50, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 300, height: 300)
+       // clockView.anchor(top: bottomViewContainer.topAnchor, left: nil, bottom: nil, right: nil, paddingTop:50, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 300, height: 300)
         
-        clockView.centerXAnchor.constraint(equalTo: bottomViewContainer.centerXAnchor, constant: 0).isActive = true
-        clockView.centerYAnchor.constraint(equalTo: bottomViewContainer.centerYAnchor, constant: 0).isActive = true
+       // clockView.centerXAnchor.constraint(equalTo: bottomViewContainer.centerXAnchor, constant: 0).isActive = true
+       // clockView.centerYAnchor.constraint(equalTo: bottomViewContainer.centerYAnchor, constant: 0).isActive = true
         
         //clockView.startUpdates()
         

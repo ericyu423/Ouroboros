@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Routine" representedClassName="Routine" syncable="YES" codeGenerationType="class">
+    <entity name="History" representedClassName="History" syncable="YES" codeGenerationType="category">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isComplete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="routine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Routine" inverseName="histories" inverseEntity="Routine" syncable="YES"/>
+    </entity>
+    <entity name="Routine" representedClassName="Routine" syncable="YES" codeGenerationType="category">
         <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isArchive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isMorning" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isNight" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="toDo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="histories" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="routine" inverseEntity="History" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Routine" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Routine" positionX="610" positionY="4200" width="128" height="133"/>
+        <element name="History" positionX="369" positionY="4239" width="128" height="88"/>
     </elements>
 </model>
