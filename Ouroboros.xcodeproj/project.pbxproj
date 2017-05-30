@@ -67,8 +67,8 @@
 		D4188ED31ED9326F00307B3A /* ClockView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView1.swift; sourceTree = "<group>"; };
 		D4188ED51ED948A700307B3A /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		D45B37781EDB4A220023EBF9 /* DrawTextAroundCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawTextAroundCircle.swift; sourceTree = "<group>"; };
-		D4EE30161EDDD4C7002ECBA5 /* Routine+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Routine+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D4EE30181EDDD4C7002ECBA5 /* History+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "History+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D4EE30161EDDD4C7002ECBA5 /* Routine+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Routine+CoreDataClass.swift"; path = "../Routine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D4EE30181EDDD4C7002ECBA5 /* History+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "History+CoreDataClass.swift"; path = "../History+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +99,6 @@
 		D4188E881ED89A0200307B3A = {
 			isa = PBXGroup;
 			children = (
-				D4EE30161EDDD4C7002ECBA5 /* Routine+CoreDataClass.swift */,
-				D4EE30181EDDD4C7002ECBA5 /* History+CoreDataClass.swift */,
 				D4188F141EDAA24800307B3A /* CodeReference */,
 				D4188E931ED89A0200307B3A /* Ouroboros */,
 				D4188EAB1ED89A0200307B3A /* OuroborosTests */,
@@ -122,6 +120,7 @@
 		D4188E931ED89A0200307B3A /* Ouroboros */ = {
 			isa = PBXGroup;
 			children = (
+				D4EE30201EDE1042002ECBA5 /* Model */,
 				D4188ECD1ED9001C00307B3A /* Setting VC */,
 				D4188ECC1ED9000400307B3A /* Main VC */,
 				D4188EC91ED8AA5E00307B3A /* helper files */,
@@ -189,6 +188,15 @@
 			);
 			name = CodeReference;
 			path = Ouroboros;
+			sourceTree = "<group>";
+		};
+		D4EE30201EDE1042002ECBA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4EE30161EDDD4C7002ECBA5 /* Routine+CoreDataClass.swift */,
+				D4EE30181EDDD4C7002ECBA5 /* History+CoreDataClass.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
