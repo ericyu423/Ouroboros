@@ -9,10 +9,13 @@
 import Foundation
 import CoreData
 
+/*
+ @NSManaged public var date: NSDate?
+ @NSManaged public var isComplete: Bool
+ @NSManaged public var routine: Routine
+ */
 class History: NSManagedObject {
     
-    @NSManaged public var date: NSDate?
-    @NSManaged public var isComplete: Bool
-    @NSManaged public var routine: Routine
+
 
 }

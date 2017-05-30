@@ -9,13 +9,17 @@
 import Foundation
 import CoreData
 
+/*
+ 
+ @NSManaged public var index: Int32
+ @NSManaged public var isArchive: Bool
+ @NSManaged public var isMorning: Bool
+ @NSManaged public var isNight: Bool
+ @NSManaged public var toDo: String?
+ @NSManaged public var histories: History?
+ */
+
 class Routine: NSManagedObject {
     
-    @NSManaged public var index: Int32
-    @NSManaged public var isArchive: Bool
-    @NSManaged public var isMorning: Bool
-    @NSManaged public var isNight: Bool
-    @NSManaged public var toDo: String?
-    @NSManaged public var histories: History?
     
 }
