@@ -32,7 +32,9 @@ class MainViewController: UIViewController,MainTableViewControllerDelegate{
     fileprivate let goldenRatioR :CGFloat = 55/34
  
    
-    
+    override func viewDidLayoutSubviews() {
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,12 +133,25 @@ class MainViewController: UIViewController,MainTableViewControllerDelegate{
         
         tableViewContainer.addSubview(tableViewController.view)
         tableViewController.view.anchorToViewEdeges(parentView: tableViewContainer)
+        
+     
 
         segmentController.insertSegment(withTitle: "Morning", at: 0, animated: true)
         segmentController.insertSegment(withTitle: "Night", at: 1, animated: true)
         segmentController.tintColor = .orange
         segmentController.selectedSegmentIndex = 0
         segmentController.addTarget(self, action: #selector(segmentControllerTapped), for: .valueChanged)
+        
+       // segmentController.frame = CGRect(x: 0, y: 0, width: 180, height: 30)
+        navigationItem.titleView = segmentController
+        let ntv = navigationItem.titleView
+        let segmentControllWidth = view.bounds.width * 0.5
+        
+        //MARK: make this if let
+        
+        segmentController.anchor(top: ntv?.topAnchor, left: ntv?.leftAnchor, bottom: ntv?.bottomAnchor, right: ntv?.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: segmentControllWidth, height: 0)
+        
+  
         
         view.addSubview(bottomViewContainer)
         bottomViewContainer.anchor(top: tableViewContainer.bottomAnchor, left: view.leftAnchor, bottom: bottomLayoutGuide.topAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
